@@ -12,6 +12,14 @@ double random_weight();
 void print_datapoint(double x, double y);
 void shuffle_data(double* x, double* y, int n);
 double mean_squared_error(double predicted, double target);
+// Activation functions
+inline double relu(double x) {
+    return x > 0 ? x : 0;
+}
+
+inline double relu_derivative(double x) {
+    return x > 0 ? 1 : 0;
+}
 
 
 
