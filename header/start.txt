@@ -1,0 +1,6 @@
+-----------------------------------------
+PROJECT TITLE: MiniTensorFlow (Structured Programming Version)
+SUBMITTED TO: [Sir Abdul Mateen]
+SUBMITTED BY: [Mirza Shahbaz Ali Baig and Ali Hamza Maqsood]
+DATE: 18 November 2025
+-----------------------------------------
