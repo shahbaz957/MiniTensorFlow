@@ -1,42 +1,35 @@
-#include "include/utils.h"
-#include <iostream>
+#include "utils.h"
 #include <cmath>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
-double sigmoid(double x)
-{
-    return (1 / 1 + exp(-x));
+double sigmoid(double x) {
+    return 1.0 / (1.0 + exp(-x));
 }
 
-double derivative_sigmoid(double x)
-{
-    double s1 = sigmoid(x);
-    return (s1 * (1 - s1));
+double sigmoid_derivative(double sigmoid_output) {
+    return sigmoid_output * (1.0 - sigmoid_output);
 }
 
-// Used for the initialization of Random Weights for start of the training of neural Networks
-double random_weight()
-{
-    return ((double)rand() / RAND_MAX) * 2 - 1; // Initialize the weights from values between -1 to 1
-}
 
-void print_datapoint(double x, double y)
-{
-    cout << "Input : " << x << " Target : " << y << endl;
-}
+void shuffle_data(double* inputs, double* targets, int size) {
+    for (int i = size - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
 
-void shuffle_data(double *inputs, double *targets, int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        int j = rand() % size;
-        swap(inputs[i], inputs[j]);
-        swap(targets[i], targets[j]);
+        // Swap inputs
+        std::swap(inputs[i], inputs[j]);
+        // Swap targets
+        std::swap(targets[i], targets[j]);
     }
 }
 
-double mean_squared_error(double predicted, double target)
-{
-    return ((target - predicted) * (target - predicted));
+void print_datapoint(double x, double y) {
+    cout << "Input: " << x << " | Target: " << y << endl;
+}
+
+
+double mean_squared_error(double predicted, double target) {
+    double error = predicted - target;
+    return 0.5 * error * error;
 }

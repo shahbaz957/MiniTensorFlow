@@ -4,17 +4,15 @@
 #include <algorithm>
 #include <ctime>
 #include <iostream>
-
+#pragma once
 
 double sigmoid(double x);
 double sigmoid_derivative(double x);
 double random_weight();
-
+void print_datapoint(double x, double y);
+void shuffle_data(double* x, double* y, int n);
 double mean_squared_error(double predicted, double target);
 
-void shuffle_data(double* &x, double* &y, int size);
-
-void print_sample(double x, double y);
 
 
 #endif
